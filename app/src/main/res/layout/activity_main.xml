@@ -1,0 +1,201 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!--<include
+        android:id="@+id/tool_bar"
+        layout="@layout/tool_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />-->
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminate="true" />
+
+    <RelativeLayout
+        android:id="@+id/rl_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/line_chart_suhu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/rg_jumlah_data"
+            android:layout_toLeftOf="@+id/rightPane" />
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/line_chart_pakan"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/rg_jumlah_data"
+            android:layout_toLeftOf="@+id/rightPane" />
+
+        <RadioGroup
+            android:id="@+id/rg_jumlah_data"
+            style="?android:attr/buttonBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="8dp"
+            android:layout_toLeftOf="@+id/rightPane"
+            android:background="@drawable/card_background"
+            android:divider="?android:dividerVertical"
+            android:orientation="horizontal"
+            android:showDividers="middle">
+
+
+            <RadioButton
+                android:id="@+id/rbPlot10"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/radiobutton_selected"
+                android:button="@null"
+                android:checked="true"
+                android:text="10" />
+
+            <RadioButton
+                android:id="@+id/rbPlot50"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/radiobutton_selected"
+                android:button="@null"
+                android:text="50" />
+
+            <RadioButton
+                android:id="@+id/rbPlot100"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/radiobutton_selected"
+                android:button="@null"
+                android:text="100" />
+
+            <RadioButton
+                android:id="@+id/rbPlot200"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/radiobutton_selected"
+                android:button="@null"
+                android:text="200" />
+
+            <RadioButton
+                android:id="@+id/rbPlot500"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/radiobutton_selected"
+                android:button="@null"
+                android:text="500" />
+
+
+        </RadioGroup>
+
+        <RelativeLayout
+            android:id="@+id/rightPane"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true">
+
+            <TextView
+                android:id="@+id/text_suhu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="10dp"
+                android:text="Suhu : 20 C"
+                android:textSize="14dp" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fabReload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text_suhu"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_refresh" />
+
+            <LinearLayout
+                android:id="@+id/ll_switch_charts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/fabReload"
+                android:layout_centerHorizontal="true"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:text="Grafik" />
+
+                <RadioGroup
+                    android:id="@+id/rg_jenis_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/card_background"
+                    android:divider="?android:dividerVertical"
+                    android:orientation="vertical"
+                    android:showDividers="middle">
+
+
+                    <RadioButton
+                        android:id="@+id/rbDataSuhu"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/radiobutton_selected"
+                        android:button="@null"
+                        android:checked="true"
+                        android:text="Suhu" />
+
+                    <RadioButton
+                        android:id="@+id/rbDataPakan"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/radiobutton_selected"
+                        android:button="@null"
+                        android:text="Pakan" />
+
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_analisa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_switch_charts"
+                android:layout_centerHorizontal="true"
+                android:background="#fff"
+                android:text="Analisa"
+                android:textColor="@color/colorAccent" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
